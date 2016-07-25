@@ -3,13 +3,14 @@ html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   background-image: url('../images/universe.jpg');
+  color: white;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 .intro{
-	color: white;
+	
 	text-align: center;
 	font-size: 5rem;
 }
