@@ -3,7 +3,9 @@ html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   background-image: url('../images/universe.jpg');
-  color: white;
+  color: #E8AB1A;
+  text-align: center;
+  font-family: 	'Josefin Sans'; 
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -11,8 +13,51 @@ html {
 
 .intro{
 	
-	text-align: center;
+	padding:5rem 5rem;
 	font-size: 5rem;
 }
 
+#question-answer{
+	
+	height: 70rem;
+}
 
+.question{
+	padding: 2rem;
+	font-size: 3rem;
+	border: 2px solid #2299E8;
+	width: 80rem;
+	background: linear-gradient(to right, darkblue , indigo);
+	margin:0 auto;
+	border-radius:2rem 2rem;
+	
+}
+
+ #answers li{
+	padding: 2rem;
+	font-size: 3rem;
+	border: 2px solid #2299E8;
+	width: 60rem;
+	margin:2rem auto;
+	border-radius:5rem 5rem;
+	font-size: 2rem;
+	
+}
+
+.submit{
+	padding: 2rem;
+	font-size: 	3rem;
+	border: 2px solid lightblue;
+	width: 20rem;
+	margin:5rem auto;
+	border-radius:5rem 5rem;
+	background: linear-gradient(to right, darkblue , indigo);
+}
+
+#Sdisplay-answer{
+	padding: 2rem;
+	font-size: 3rem;
+	width: 70rem;
+	margin:2rem auto;
+	font-size: 2rem;
+}

@@ -5,20 +5,28 @@
     <meta charset="UTF-8">
     <title>Quizz-app</title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
     <div class="container">
         <h1 class="intro">Welcome to the Science Quiz!</h1>
-        <form id="question-answer">
-            <p class="question"></p>
-            <!-- <input type="radio" name="answer" value=" "> -->
-        </form>
-        <button class="btn-submit">Submit Answer!</button>
+        <section id="question-answer">
+            <p class="question">What is one of the most important contributions that Richard Feynman made to science?</p>
+            <ul id="answers">    
+                <li>Discovering the existance of dark matter</li>
+                <li>Discovering that our universe is expanding</li>
+                <li>Spacetime diagrams of fundamental particle interactions</li>
+                <li>Energy and mass are interchangeable</li>
+                
+            </ul>
+            <p class="submit"><span class="check">&#9989;</span> Submit!</p>
+            <p id="display-answer"></p>
+        </section>
+     <!--   <button class="btn-submit">Submit Answer!</button>
         <p class="correct-answer">Test</p>
-        <p class="score">Test</p>
+        <p class="score">Test</p> -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
