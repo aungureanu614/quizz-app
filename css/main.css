@@ -23,7 +23,7 @@ html {
 }
 
 .box-style{
-	padding: 2rem;
+	padding: 1rem;
 	font-size: 3rem;
 	border: 2px solid #2299E8;
 	background: linear-gradient(to right, darkblue , indigo);
@@ -46,10 +46,14 @@ html {
 	font-size: 2rem;
 	
 }
-
+#answers li:hover{
+	cursor: pointer;
+}
 .submit{
-	
 	width: 20rem;	
+}
+.submit:hover{
+	cursor: pointer;
 }
 
 #display-answer{
@@ -58,4 +62,5 @@ html {
 	width: 70rem;
 	margin:2rem auto;
 	font-size: 2rem;
+	color:white;
 }
