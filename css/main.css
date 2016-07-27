@@ -32,7 +32,7 @@ html {
 }
 .question{
 	
-	width: 80rem;
+	width: 80%;
 	
 }
 
@@ -40,7 +40,7 @@ html {
 	padding: 2rem;
 	font-size: 3rem;
 	border: 2px solid #2299E8;
-	width: 60rem;
+	width: 60%;
 	margin:2rem auto;
 	border-radius:5rem 5rem;
 	font-size: 2rem;
