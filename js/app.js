@@ -1,7 +1,8 @@
-var count = 0;
+var points = 0;
 var selectedText;
 var selected;
 var num = 0;
+
 var questions = [{
 
         question: "How old is the universe?",
@@ -34,61 +35,63 @@ var questions = [{
 ];
 
 $(document).ready(function() {
-
-  
-
+   
+	//Add section elements
+    $('#question-answer').append('<p class="question box-style"></p><ul id="answers"></ul><p class="submit box-style"><span class="check">&#9989;</span> Submit!</p><p id="display-answer"></p>');
     playGame(num);
 
-    function playGame(num) {
-
-        $('.question').text(questions[num].question);
-        for (i = 0; i < questions[num].choices.length; i++) {
-
-            $('#answers').append('<li>' + questions[num].choices[i] + '</li>');
-        }
-
-
-        $('li').click(function() {
-            $('li').css('border-color', '#2299E8');
-            selected = $(this).css('border-color', 'red');
-            selectedText = selected.text();
-
-        });
-
-        $('.submit').click(function() {
-            if (selectedText) {
-                submit(selectedText, num);
-            } else {
-                alert("Please select an answer");
-            }
-        });
-    }
-
-    function submit(str, number) {
-        if (str === questions[number].correct) {
-            $('#display-answer').empty();
-            $('#display-answer').append("That's right! " + str);
-            count += 1;
-        } else {
-            $('#display-answer').empty();
-            $('#display-answer').append("No, the correct answer is: " + questions[number].correct);
-        }
-        $('#answers').empty();
-
-        if (number < questions.length - 1) {
-            number += 1;
-            playGame(number);
-        } else {
-            $('#display-answer').empty();
-            $('.submit').remove();
-            $('#question-answer').empty();
-            $('#question-answer').append('<p>You got ' + count + ' out of ' + questions.length + '. Want to play again?</p>').css('font-size', '3rem');
-            $('#question-answer').append('<p class="submit box-style" id="playAgain">Play Again!</p>');
-        }
-        
-
-    }
-
-
-
 });
+
+function playGame(num) {
+
+	//populate the form with questions as multiple choice answers
+    $('.question').text(questions[num].question);
+    for (i = 0; i < questions[num].choices.length; i++) {
+
+        $('#answers').append('<li>' + questions[num].choices[i] + '</li>');
+    }
+
+    //change border color upon user selection
+    $('li').click(function() {
+        $('li').css('border-color', '#2299E8');
+        selected = $(this).css('border-color', 'red');
+        selectedText = selected.text();
+
+    });
+
+	//validates if user has made a selection and passes info to submit function
+    $('.submit').click(function() {
+        if (selectedText) {
+            submit(selectedText, num);
+        } else {
+            alert("Please select an answer");
+        }
+    });
+}
+
+function submit(str, number) {
+	//displays a response with the correct answer and gives correct answer
+    if (str === questions[number].correct) {
+        $('#display-answer').empty();
+        $('#display-answer').append("That's right! " + str);
+        points += 1; //keeps track of number of questions user got correct
+    } else {
+        $('#display-answer').empty();
+        $('#display-answer').append("No, the correct answer is: " + questions[number].correct);
+    }
+    $('#answers').empty();
+    //displays next question
+    if (number < questions.length - 1) {
+        number += 1;
+        playGame(number);
+    } else {
+    	//handles what to do after last question has been answered
+        $('#question-answer').empty();
+        $('#question-answer').append('<p>You got ' + points + ' out of ' + questions.length + '. Want to play again?</p>').css('font-size', '3rem');
+        $('#question-answer').append('<p class="submit box-style" id="playAgain">Play Again!</p>');
+        $('#playAgain').click(function() {
+            window.location.reload();
+        })
+
+    }
+};
