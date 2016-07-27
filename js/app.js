@@ -35,16 +35,17 @@ var questions = [{
 
 $(document).ready(function() {
 
-    
+  
 
     playGame(num);
 
     function playGame(num) {
+
         $('.question').text(questions[num].question);
         for (i = 0; i < questions[num].choices.length; i++) {
 
             $('#answers').append('<li>' + questions[num].choices[i] + '</li>');
-        };
+        }
 
 
         $('li').click(function() {
@@ -60,25 +61,34 @@ $(document).ready(function() {
             } else {
                 alert("Please select an answer");
             }
-        })
+        });
     }
 
     function submit(str, number) {
         if (str === questions[number].correct) {
             $('#display-answer').empty();
             $('#display-answer').append("That's right! " + str);
+            count += 1;
         } else {
             $('#display-answer').empty();
             $('#display-answer').append("No, the correct answer is: " + questions[number].correct);
         }
         $('#answers').empty();
 
-        if (number < 4) {
+        if (number < questions.length - 1) {
             number += 1;
             playGame(number);
         } else {
-            alert('Game over!');
+            $('#display-answer').empty();
+            $('.submit').remove();
+            $('#question-answer').empty();
+            $('#question-answer').append('<p>You got ' + count + ' out of ' + questions.length + '. Want to play again?</p>').css('font-size', '3rem');
+            $('#question-answer').append('<p class="submit box-style" id="playAgain">Play Again!</p>');
         }
+        
+
     }
+
+
 
 });
